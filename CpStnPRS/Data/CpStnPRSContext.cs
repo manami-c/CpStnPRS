@@ -18,6 +18,8 @@ namespace CpStnPRS.Data
 
         public virtual DbSet<CpStnPRS.Models.Vendor> Vendors { get; set; }
 
+        public virtual DbSet<CpStnPRS.Models.Product> Product { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<User>(e =>
@@ -28,7 +30,12 @@ namespace CpStnPRS.Data
             {
                 e.HasIndex(p => p.Code).IsUnique();
             });
+            builder.Entity<Product>(e =>
+            {
+                e.HasIndex(p => p.PartNbr).IsUnique();
+            });
         }
+
        
     }
 }
