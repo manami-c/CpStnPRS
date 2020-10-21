@@ -130,10 +130,10 @@ namespace CpStnPRS.Controllers
             return await PutRequest(id, request);
         }
         //GetReviews/api/Requests/
-        [HttpGet("review")]
-        public async Task<ActionResult<IEnumerable<Request>>> GetRequestInReview()
+        [HttpGet("review/{userId}")]
+        public async Task<ActionResult<IEnumerable<Request>>> GetRequestInReview(int userId)
         {
-            return await _context.Requests.Where(r => r.Status == "REVIEW").ToListAsync();
+            return await _context.Requests.Where(r => r.Status == "REVIEW" && r.UserId != userId).ToListAsync();
         }
 
     }
