@@ -106,9 +106,15 @@ namespace CpStnPRS.Controllers
         {
             return _context.Users.Any(e => e.Id == id);
         }
+        [HttpGet("{username}/{password}")]
         public async Task<ActionResult<User>>Login(string username, string password)
         {
             var user = await _context.Users.SingleOrDefaultAsync(u => u.Username == username && u.Password == password);
+
+            if(user == null)
+            {
+                return NotFound();
+            }
             return user;
         }
     }

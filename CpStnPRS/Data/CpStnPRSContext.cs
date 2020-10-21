@@ -18,7 +18,11 @@ namespace CpStnPRS.Data
 
         public virtual DbSet<CpStnPRS.Models.Vendor> Vendors { get; set; }
 
-        public virtual DbSet<CpStnPRS.Models.Product> Product { get; set; }
+        public virtual DbSet<CpStnPRS.Models.Product> Products { get; set; }
+        public DbSet<CpStnPRS.Models.Request> Requests { get; set; }
+
+        public DbSet<CpStnPRS.Models.RequestLine> RequestLines { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -35,6 +39,8 @@ namespace CpStnPRS.Data
                 e.HasIndex(p => p.PartNbr).IsUnique();
             });
         }
+
+
 
        
     }

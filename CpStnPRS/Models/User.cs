@@ -11,6 +11,7 @@ namespace CpStnPRS.Models
         public int Id { get; set; }
         [Required]
         [StringLength(30)]
+        
         public string Username { get; set; }
         [Required]
         [StringLength(30)]

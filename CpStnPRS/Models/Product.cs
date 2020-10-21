@@ -17,7 +17,7 @@ namespace CpStnPRS.Models
         [Required]  
         [StringLength(30)]
         public string Name { get; set; }
-        [Required]
+        
         [Column(TypeName = "decimal(11,2)")]
         public decimal Price { get; set; }
         [Required]
@@ -25,7 +25,7 @@ namespace CpStnPRS.Models
         public string Unit { get; set; }
         [StringLength(255)]
         public string PhotoPath { get; set; }
-        [Required]
+        
         public int VendorId { get; set; }
 
         public virtual Vendor Vendor { get; set; }
